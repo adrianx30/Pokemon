@@ -23,5 +23,13 @@ public class PokemonController {
 		return data.getPokemonById(pokemonId);
 	}
 	
+	@RequestMapping(value="/pokemon/types", method = RequestMethod.GET)
+	public List<TypePokemon> getAllTypesList() {	
+		return data.getTypeList();
+	}
 	
+	@RequestMapping(value="/pokemon/types/{typeId}", method = RequestMethod.GET)
+	public TypePokemon getTypesListById(@PathVariable("typeId") long typeId) {	
+		return data.getTypeListById(typeId);
+	}
 }

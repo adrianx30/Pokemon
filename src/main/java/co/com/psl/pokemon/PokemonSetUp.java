@@ -26,6 +26,15 @@ public class PokemonSetUp {
 		return null;
 	}
 	
+	public TypePokemon getTypeListById(long typeId) {
+		for (int i = 0; i < typeList.size(); i++) {
+			if(typeList.get(i).getId() == typeId){
+				return typeList.get(i);
+			}
+		}				
+		return null;
+	}
+	
 	public List<TypePokemon> getTypeList() {
 		return typeList;
 	}
