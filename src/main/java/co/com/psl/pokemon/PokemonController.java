@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,22 +15,22 @@ public class PokemonController {
 	PokemonSetUp data;
 	
 	@RequestMapping(value="/pokemon", method = RequestMethod.GET)
-	public List<Pokemon> getAllPokemon() {	
+	public @ResponseBody List<Pokemon> getAllPokemon() {	
 		return data.getPokemonList();
 	}
 
 	@RequestMapping(value="/pokemon/{pokemonId}", method = RequestMethod.GET)
-	public Pokemon getPokemonById(@PathVariable("pokemonId") long pokemonId) {	
+	public @ResponseBody Pokemon getPokemonById(@PathVariable("pokemonId") long pokemonId) {	
 		return data.getPokemonById(pokemonId);
 	}
 	
 	@RequestMapping(value="/pokemon/types", method = RequestMethod.GET)
-	public List<TypePokemon> getAllTypesList() {	
+	public @ResponseBody List<TypePokemon> getAllTypesList() {	
 		return data.getTypeList();
 	}
 	
 	@RequestMapping(value="/pokemon/types/{typeId}", method = RequestMethod.GET)
-	public TypePokemon getTypesListById(@PathVariable("typeId") long typeId) {	
+	public @ResponseBody TypePokemon getTypesListById(@PathVariable("typeId") long typeId) {	
 		return data.getTypeListById(typeId);
 	}
 }
