@@ -7,6 +7,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Component;
+import co.com.psl.pokemon.dto.Pokemon;
+import co.com.psl.pokemon.dto.TypePokemon;
 
 @Component
 public class PokemonSetUp {
@@ -84,6 +86,16 @@ public class PokemonSetUp {
 		weakness.add(typeList.get(8));
 		pokemonList.add(new Pokemon(counterPokemon.incrementAndGet(), "Bulbasaur",
 				type, weakness , 0, "http://www.dondevive.org/wp-content/uploads/2016/07/pikachu.jpg"));
+	}
+
+	public List<Pokemon> getPokemonByName(String nameOrNull) {
+		List<Pokemon> pokemonFound = new ArrayList<Pokemon>();
+		for (int i = 0; i < pokemonList.size(); i++) {
+			if(pokemonList.get(i).getName().toLowerCase().contains(nameOrNull.toLowerCase())){
+				pokemonFound.add(pokemonList.get(i));
+			}
+		}	
+		return pokemonFound;
 	}
 
 }

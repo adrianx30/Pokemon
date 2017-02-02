@@ -1,4 +1,4 @@
-package co.com.psl.pokemon;
+package co.com.psl.pokemon.dto;
 
 import java.util.List;
 

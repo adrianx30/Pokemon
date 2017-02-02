@@ -1,4 +1,4 @@
-package co.com.psl.pokemon;
+package co.com.psl.pokemon.dto;
 
 public class TypePokemon {
 	
